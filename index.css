@@ -1,0 +1,90 @@
+
+.container {
+    margin: 0px;
+}
+
+.grid {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    flex: 1;
+}
+
+.item {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.item.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+#time-container {
+    margin-top: 20px;
+    display: none;
+}
+
+#time-container.active {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    flex: 1;
+}
+
+/*ESTILOS PARA CAMPOS DO FORMULARIO*/
+
+.form-container {
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 350px;
+    margin: 0px auto;
+   
+    
+}
+.form-container h2 {
+    color: black;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: black;
+    font-size: 14px;
+
+
+}
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(44, 44, 44);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.form-container input:focus {
+    outline: none;
+    border-color: #4682b4;
+    box-shadow: 0 0 5px rgba(70, 130, 180, 0.5);
+}
+.form-container button:hover {
+    background-color: #5a9bd4;
+}
