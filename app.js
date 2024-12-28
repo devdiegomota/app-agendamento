@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import { getFirestore, collection, query, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-
+import { dadosform } from "./formulario.js";
 // Configuração do Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyC6CNIyYzP5jjwih2_AagpP3zsmzqxEPVo",
@@ -19,7 +19,7 @@ const db = getFirestore(app);
 let dataSelecionada = null;
 let horarioSelecionado = null;
 
-//criar datas
+//Função para criar datas
 function criarDatas(containerId, diasAdiante = 15) {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -133,8 +133,11 @@ function verificarSePodeSalvar() {
 
 // Função para salvar agendamento no Firebase
 async function salvarAgendamento(data, horario) {
+    const nome = dadosform().nome
+    const telefone = dadosform().telefone
+
     try {
-        await addDoc(collection(db, "agendamentos"), { data, horario });
+        await addDoc(collection(db, "agendamentos"), { data, horario, nome, telefone });
         alert("Agendamento salvo com sucesso!");
         dataSelecionada = null;
         horarioSelecionado = null;
@@ -147,7 +150,8 @@ async function salvarAgendamento(data, horario) {
 // Evento do botão salvar
 document.getElementById("btnSalvar").addEventListener("click", () => {
     if (dataSelecionada && horarioSelecionado) {
-        salvarAgendamento(dataSelecionada, horarioSelecionado);
+        salvarAgendamento(dataSelecionada, horarioSelecionado); 
+
     }
 });
 
