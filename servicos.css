@@ -69,18 +69,21 @@ h1 {
     }
 
     .dropdown-button {
-      background-color: #db2c26;
-      color: white;
-      padding: 10px 20px;
+      background-color: #ffffff;
+      color: #161616;
+      padding: 10px 6px;
       font-size: 16px;
-      border: none;
+      border: 1px solid #5e5d5d;
       border-radius: 4px;
       cursor: pointer;
       width: 100%;
+      text-align: start;
+      display: flex;
+      justify-content: space-between;
     }
 
     .dropdown-button:hover {
-      background-color: #f36e6e;
+      background-color: #e2e2e2;
     }
 
     .dropdown-content {
