@@ -1,0 +1,115 @@
+body {
+    margin: 0px 35px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    margin-top: 20px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    height: 90%;
+    font-size: 16px;
+    padding-left: 10px;
+    border-radius: 20px;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-bar img {
+    width: 75%;
+}
+h1 {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+.line {
+    border: none;
+    height: 1px;
+    background-color: #8e8d8d; /* Cor preta */
+    margin: 20px 0;
+    margin-bottom: 25px;
+}
+
+.red-button {
+    margin-bottom: 30px;
+    background-color: #ff3f3f; /* Fundo vermelho */
+    color: white; /* Texto branco */
+    border: none; /* Remove bordas */
+    border-radius: 10px; /* Bordas suavemente arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    cursor: pointer; /* Cursor de clique */
+    transition: background-color 0.3s ease; /* Animação ao passar o mouse */
+}
+
+.red-button:hover {
+    background-color: darkred; /* Fundo vermelho escuro no hover */
+}
+
+/*Dropdown de serviços*/
+.dropdown {
+     width: 100%;
+     margin-top: 20px;
+    }
+
+    .dropdown-button {
+      background-color: #db2c26;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .dropdown-button:hover {
+      background-color: #f36e6e;
+    }
+
+    .dropdown-content {
+      display: none;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown.active .dropdown-content {
+      display: block;
+    }
+/*fim dropdown serviços*/
