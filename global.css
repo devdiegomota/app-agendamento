@@ -5,17 +5,6 @@ body {
 h2 {
     font-size: 14px;
 }
-.buttonSalvar { 
-    padding: 5px;
-    border-radius: 5px;
-    background-color: white;
-    border: 1px solid;
-}
-button:disabled {
-    background-color: #ddd;
-    cursor: not-allowed;
-    opacity: 0.7;
-}
 body {
     font-family: Arial, Helvetica, sans-serif;
    
@@ -26,11 +15,11 @@ h2 {
 .buttonSalvar { 
     padding: 5px;
     border-radius: 5px;
-    background-color: white;
+    background-color: red;
     border: 1px solid;
 }
 button:disabled {
-    background-color: #ddd;
+    background-color: #5a5a5a;
     cursor: not-allowed;
     opacity: 0.7;
 }

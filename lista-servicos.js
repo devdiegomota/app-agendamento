@@ -22,3 +22,12 @@ function toggleDropdown() {
     const dropdowns = document.querySelectorAll('.dropdown');
     dropdowns[4].classList.toggle('active');
   }
+
+   // Variável global para armazenar o valor do link clicado no dropdown
+   let valorSelecionado = null;
+
+   // Função que armazena o valor do link clicado
+   function armazenarValor(valor) {
+       valorSelecionado = valor;
+       console.log("Valor armazenado:", valorSelecionado);
+   }
