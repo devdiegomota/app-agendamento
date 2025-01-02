@@ -44,7 +44,7 @@ onSnapshot(servicosRef, snapshot => {
   // Iterar pelos documentos
   snapshot.forEach(doc => {
     const data = doc.data();
-    const category = data.categoria; // Categoria
+    const category = data.category; // Categoria
     const services = data.services || {}; // Serviços (map com nome e valor)
 
     // Criar dropdown e adicionar ao container
