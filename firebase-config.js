@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import { getFirestore, collection, query, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { getFirestore, where, collection, query, getDocs, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 // Configuração do Firebase
     const firebaseConfig = {
@@ -12,4 +12,4 @@ import { getFirestore, collection, query, getDocs, addDoc } from "https://www.gs
         measurementId: "G-JQ31P0VMG8"
     };
 export {initializeApp};
-export {getFirestore, getDocs, collection, query, addDoc, firebaseConfig};
+export {getFirestore, getDocs, collection, query, addDoc, where, onSnapshot, firebaseConfig};

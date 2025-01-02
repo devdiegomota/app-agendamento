@@ -21,6 +21,8 @@
     text-align: center;
     cursor: pointer;
     font-size: 14px;
+    align-content: center;
+    height: 25px;
 }
 
 .item.disabled {
@@ -54,11 +56,8 @@
     border: 1px solid #eeeeee;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 350px;
-    margin: 0px auto;
+    width: -webkit-fill-available;;
    
-    
 }
 .form-container h2 {
     color: #555;
@@ -89,10 +88,6 @@
     border-color: #4682b4;
     box-shadow: 0 0 5px rgba(70, 130, 180, 0.5);
 }
-.form-container button:hover {
-    background-color: red;
-    color: white;
-}
 .form-container button {
     width: 100%;
     padding: 12px;
@@ -103,7 +98,8 @@
     font-size: 1rem;
 }
 body {
-    height: 95vh;
+    margin: 0px 30px;
+    min-height: 100vh;
     align-items: center;
     display: flex;
     justify-content: center;

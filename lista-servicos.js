@@ -1,33 +1,56 @@
-function toggleDropdown() {
-    const dropdown = document.querySelector('.dropdown');
-    dropdown.classList.toggle('active');
-  }
+import { initializeApp, getDocs, getFirestore, addDoc, where, query, collection, onSnapshot, firebaseConfig } from "./firebase-config.js";
 
-  function toggleDropdown2() {
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns[1].classList.toggle('active');
-  }
+// Inicialização do Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-  function toggleDropdown3() {
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns[2].classList.toggle('active');
-  }
+// Referência para o container
+const dropdownContainer = document.getElementById("dropdown-container");
 
-  function toggleDropdown4() {
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns[3].classList.toggle('active');
-  }
+// Função para criar dropdown
+function createDropdown(category, services) {
+  const dropdown = document.createElement("div");
+  dropdown.classList.add("dropdown");
 
-  function toggleDropdown5() {
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns[4].classList.toggle('active');
-  }
+  // Botão do dropdown
+  const button = document.createElement("button");
+  button.classList.add("dropdown-button");
+  button.innerHTML = `${category} <img src="img/setadrop.png" alt="Abrir menu">`;
+  dropdown.appendChild(button);
 
-   // Variável global para armazenar o valor do link clicado no dropdown
-   let valorSelecionado = null;
+  // Conteúdo do dropdown
+  const dropdownContent = document.createElement("div");
+  dropdownContent.classList.add("dropdown-content");
 
-   // Função que armazena o valor do link clicado
-   function armazenarValor(valor) {
-       valorSelecionado = valor;
-       console.log("Valor armazenado:", valorSelecionado);
-   }
+  // Adicionar serviços como links no dropdown
+  Object.keys(services).forEach(key => {
+    const service = services[key];
+    const link = document.createElement("a");
+    link.href = "#";
+    link.textContent = `${service.nome} - R$ ${service.valor}`;
+    dropdownContent.appendChild(link);
+  });
+
+  dropdown.appendChild(dropdownContent);
+  return dropdown;
+}
+
+// Listener para dados do Firestore
+const servicosRef = collection(db, "servicos");
+onSnapshot(servicosRef, snapshot => {
+  // Limpar container
+  dropdownContainer.innerHTML = "";
+
+  // Iterar pelos documentos
+  snapshot.forEach(doc => {
+    const data = doc.data();
+    const category = data.categoria; // Categoria
+    const services = data.services || {}; // Serviços (map com nome e valor)
+
+    // Criar dropdown e adicionar ao container
+    const dropdown = createDropdown(category, services);
+    dropdownContainer.appendChild(dropdown);
+  });
+});
+
+

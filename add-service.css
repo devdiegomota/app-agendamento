@@ -1,18 +1,15 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
+    margin: 0px 30px;
     padding: 0;
-    background-color: #ffff
-    ;
+    background-color: #ffff;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 .form-container {
-    width: 90%;
-    max-width: 400px;
-    padding: 20px;
+    width: -webkit-fill-available;;
     border: 1px solid #ddd;
     background-color: #fff;
     border-radius: 5px;
@@ -21,7 +18,7 @@ body {
 .form-container h2 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 1.5rem;
+    font-size: 18px;
     color: #333;
 }
 .form-container label {
@@ -31,7 +28,7 @@ body {
     color: #555;
 }
 .form-container input {
-    width: 96%;
+    width: -webkit-fill-available;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -50,21 +47,4 @@ body {
 }
 .form-container button:hover {
     background-color: red;
-}
-
-/* Responsividade para dispositivos menores */
-@media (max-width: 480px) {
-    .form-container {
-        padding: 15px;
-    }
-    .form-container h2 {
-        font-size: 18px;
-    }
-    .form-container input {
-        font-size: 0.9rem;
-    }
-    .form-container button {
-        font-size: 0.9rem;
-        padding: 10px;
-    }
 }
