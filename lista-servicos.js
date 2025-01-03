@@ -26,9 +26,10 @@ function createDropdown(category, services) {
   Object.keys(services).forEach(key => {
     const service = services[key];
     const link = document.createElement("a");
-    link.href = "#";
-    link.textContent = `${service.nome} - R$ ${service.valor}`;
+    link.href = `index.html?servico=${encodeURIComponent(service.nome)}&valor=${encodeURIComponent(service.valor)}`;
+    link.textContent = `${service.nome} - R$ ${service.valor.toFixed(2)}`;
     dropdownContent.appendChild(link);
+
   });
 
   dropdown.appendChild(dropdownContent);

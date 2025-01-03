@@ -20,6 +20,26 @@ const db = getFirestore(app);
 let dataSelecionada = null;
 let horarioSelecionado = null;
 
+// Função para obter o valor de um parâmetro da URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+  
+  // Capturar os parâmetros nome e valor do serviço
+  const serviceName = getQueryParam("servico");
+  const serviceValue = getQueryParam("valor");
+  
+  // Exibir o nome e o valor do serviço na página
+  if (serviceName && serviceValue) {
+    document.getElementById("service-name").textContent = `Você escolheu: ${decodeURIComponent(serviceName)}`;
+    document.getElementById("service-value").textContent = `Valor: R$ ${parseFloat(serviceValue).toFixed(2)}`;
+  } else {
+    document.getElementById("service-name").textContent = "Nenhum serviço selecionado.";
+    document.getElementById("service-value").textContent = "";
+  }
+  
+
 //Função para criar datas
 function criarDatas(containerId, diasAdiante = 15) {
     const container = document.getElementById(containerId);
@@ -138,7 +158,7 @@ async function salvarAgendamento(data, horario) {
     const telefone = dadosform().telefone
 
     try {
-        await addDoc(collection(db, "agendamentos"), { data, horario, nome, telefone });
+        await addDoc(collection(db, "agendamentos"), { data, horario, nome, telefone, servico: serviceName, valor: serviceValue });
         alert("Agendamento salvo com sucesso!");
         dataSelecionada = null;
         horarioSelecionado = null;  

@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atualizar Serviços</title>
+  <title>Adicionar Serviços</title>
+  <link rel="stylesheet" href="global.css">
   <link rel="stylesheet" href="add-service2.css">
 </head>
 <body>
 <div class="form-container">
-  <h2>Atualizar Serviços</h2>
+  <h2>Adicionar Serviços</h2>
   <form id="update-form">
     <label for="category">Categoria:</label>
     <input type="text" id="category" name="category" placeholder="Ex: Cabelo" required>
     <br><br>
 
-    <label for="service-id">ID do Serviço:</label>
-    <input type="text" id="service-id" name="service-id" placeholder="Ex: corte_adulto" required>
-    <br><br>
+    <label for="service-id" style="display: none;">ID do Serviço:</label>
+    <input type="text" id="service-id" name="service-id" placeholder="Ex: corte_adulto" style="display: none;">
+  
 
     <label for="service-name">Nome do Serviço:</label>
     <input type="text" id="service-name" name="service-name" placeholder="Ex: Corte de cabelo" required>
@@ -29,7 +30,7 @@
     <button type="submit">Atualizar Serviço</button>
   </form>
 </div>
-  <div id="status"></div>
+  <div id="status" class="subtitulo" style="font-weight: bold; margin-top: 25px;"></div>
 </body>
 <script type="module" src="add-service2.js"></script>
 </html>

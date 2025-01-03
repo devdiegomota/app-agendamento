@@ -1,0 +1,246 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0px 30px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  margin-top: 20px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  flex: 1;
+  height: 90%;
+  font-size: 16px;
+  padding-left: 10px;
+  border-radius: 20px;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar img {
+  width: 75%;
+}
+
+.line {
+  border: none;
+  height: 1px;
+  background-color: #8e8d8d;
+  /* Cor preta */
+  margin: 20px 0;
+  margin-bottom: 25px;
+}
+
+.red-button {
+  margin-bottom: 30px;
+  background-color: #ff3f3f;
+  /* Fundo vermelho */
+  color: white;
+  /* Texto branco */
+  border: none;
+  /* Remove bordas */
+  border-radius: 10px;
+  /* Bordas suavemente arredondadas */
+  padding: 10px 20px;
+  /* Espaçamento interno */
+  cursor: pointer;
+  /* Cursor de clique */
+  transition: background-color 0.3s ease;
+  /* Animação ao passar o mouse */
+}
+
+.red-button:hover {
+  background-color: darkred;
+  /* Fundo vermelho escuro no hover */
+}
+
+/*Dropdown de serviços*/
+.dropdown {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.dropdown-button {
+  background-color: #ffffff;
+  font-weight: bold;
+  color: #555;
+  padding: 10px 6px;
+  font-size: 16px;
+  border: 1px solid #5e5d5d;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  text-align: start;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-button:hover {
+  background-color: #e2e2e2;
+}
+
+.dropdown-content {
+  display: none;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #555;
+  padding: 16px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown.active .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*fim dropdown serviços*/
+
+/*Botão delete serviços*/
+.service-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-button {
+
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: darkred;
+}
+
+/*fim botão delete serviços*/
+/*Botao delete em cada categoria*/
+.delete-category-button {
+  background-color: #e74c3c;
+  /* Vermelho intenso */
+  color: white;
+  /* Texto branco */
+  border: none;
+  /* Sem borda */
+  padding: 5px;
+  /* Espaçamento interno */
+  font-size: 14px;
+  /* Tamanho da fonte */
+  border-radius: 5px;
+  /* Bordas arredondadas */
+  cursor: pointer;
+  /* Alterar cursor para pointer */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  /* Transição suave */
+}
+
+/* Efeito ao passar o mouse */
+.delete-category-button:hover {
+  background-color: #c0392b;
+  /* Vermelho mais escuro */
+  transform: scale(1.05);
+  /* Aumentar ligeiramente */
+}
+
+/* Efeito ao clicar */
+.delete-category-button:active {
+  background-color: #a93226;
+  /* Vermelho ainda mais escuro */
+  transform: scale(0.95);
+  /* Reduzir ligeiramente */
+}
+
+/*fim botao delete de cada categoria*/
+
+
+/*Botao flutuante na tela*/
+#floating-button-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+#floating-button {
+  width: 60px;
+  height: 60px;
+  background-color: #646464;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#floating-button:hover {
+  background-color: #262626;
+}
+
+#add-service-link {
+  margin-top: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+#add-service-link a {
+  text-decoration: none;
+  color: #555;
+  font-size: 16px;
+}
+
+#add-service-link a:hover {
+  text-decoration: underline;
+}
+
+/*fim botao flutuante*/

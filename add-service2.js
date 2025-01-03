@@ -15,7 +15,7 @@ form.addEventListener("submit", async (e) => {
 
   // Obter valores do formulário
   const category = form.category.value.trim();
-  const serviceId = form["service-id"].value.trim();
+  const serviceId = form["service-name"].value.trim();//form["service-id"].value.trim();
   const serviceName = form["service-name"].value.trim();
   const serviceValue = parseFloat(form["service-value"].value);
 
