@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="form-container">
-  <h2>Adicionar Serviços</h2>
+  <h2 class="titulo">Adicionar Serviços</h2>
   <form id="update-form">
     <label for="category">Categoria:</label>
     <input type="text" id="category" name="category" placeholder="Ex: Cabelo" required>
@@ -27,7 +27,9 @@
     <input type="number" id="service-value" name="service-value" step="0.01" placeholder="Ex: 30.00" required>
     <br><br>
 
-    <button type="submit">Atualizar Serviço</button>
+    <button onclick="window.history.back()" class="botao-one-two">Voltar</button>
+    <br><br>
+    <button type="submit" class="botao-one">Adicionar Serviço</button>
   </form>
 </div>
   <div id="status" class="subtitulo" style="font-weight: bold; margin-top: 25px;"></div>

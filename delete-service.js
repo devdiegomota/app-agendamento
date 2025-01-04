@@ -18,11 +18,15 @@ function createDropdown(category, services, categoryDocId) {
   const button = document.createElement("button");
   button.classList.add("dropdown-button");
   button.innerHTML = `${category} <img src="img/setadrop.png" alt="Abrir menu">`;
+  button.addEventListener("click", () => {
+    dropdownContent.classList.toggle("show"); // Alterna a classe "show"
+  });
+  
 
   // Botão de deletar categoria
   const deleteCategoryButton = document.createElement("button");
-  deleteCategoryButton.textContent = "Deletar Categoria";
-  deleteCategoryButton.classList.add("delete-category-button");
+  deleteCategoryButton.textContent = "Deletar";
+  deleteCategoryButton.classList.add("botao-one");
   
 
   deleteCategoryButton.addEventListener("click", async () => {
@@ -61,7 +65,7 @@ function createDropdown(category, services, categoryDocId) {
     // Botão de deletar serviço
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Deletar";
-    deleteButton.classList.add("delete-button");
+    deleteButton.classList.add("botao-two");
     deleteButton.addEventListener("click", async () => {
       if (confirm(`Deseja realmente deletar o serviço "${service.nome}"?`)) {
         try {
@@ -140,13 +144,16 @@ onSnapshot(servicosRef, snapshot => {
 });
 
 // Cria um Botão flutuante com link no inicio da tela
+// Cria um Botão flutuante com link no início da tela
 const floatingButton = document.getElementById("floating-button");
 const addServiceLink = document.getElementById("add-service-link");
 
+// Alterna a visibilidade do link
 floatingButton.addEventListener("click", () => {
-  if (addServiceLink.style.display === "none") {
-    addServiceLink.style.display = "block";
+  if (addServiceLink.classList.contains("show")) {
+    addServiceLink.classList.remove("show");
   } else {
-    addServiceLink.style.display = "none";
+    addServiceLink.classList.add("show");
   }
 });
+

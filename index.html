@@ -14,31 +14,32 @@
     
 
     <div class="form-container">
-        <h2 style="font-size: 18px; text-align: center; color: #333;">Agendamento</h2>
+        <h2 style="text-align: center;" class="titulo">Agendamento</h2>
 
         <div id="chosen-service" class="subtitulo">  
             <p id="service-name"></p><p id="service-value"></p>
         </div>
         
     <div class="container">
-        <h2>Selecione uma data</h2>
+        <h2 class="subtitulo">Selecione uma data</h2>
         <div id="date-container" class="grid"></div>
     </div>
 
     <div class="container">
-        <h2>Selecione um horário</h2>
+        <h2 class="subtitulo">Selecione um horário</h2>
         <div id="time-container" class="grid"></div>
     </div>
-
-        <h2>Cliente</h2>
+<br>
         <form>
-            <label for="nome">Nome:</label>
+            <label class="subtitulo" for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
             
-            <label for="telefone">Telefone:</label>
+            <label class="subtitulo" for="telefone">Telefone:</label>
             <input type="tel" id="telefone" name="telefone" placeholder="(48) 99122-8908" required>
             
-            <button type="button" class="container buttonSalvar" id="btnSalvar" style="margin-top: 0px;" disabled>Salvar Agendamento</button>
+            <button onclick="window.history.back()" class="botao-one-two">Voltar</button>
+            <br><br>
+            <button type="button" class="container botao-one" id="btnSalvar" style="margin-top: 0px;" disabled>Salvar Agendamento</button>
 
         </form>
     </div>

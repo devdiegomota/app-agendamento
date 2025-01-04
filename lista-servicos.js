@@ -16,6 +16,10 @@ function createDropdown(category, services) {
   const button = document.createElement("button");
   button.classList.add("dropdown-button");
   button.innerHTML = `${category} <img src="img/setadrop.png" alt="Abrir menu">`;
+  //teste
+  button.addEventListener("click", () => {
+    dropdownContent.classList.toggle("show"); // Alterna a classe "show"
+  });  
   dropdown.appendChild(button);
 
   // Conteúdo do dropdown

@@ -98,6 +98,15 @@ body {
 
 .dropdown-content {
   display: none;
+  /* Esconde o conteúdo inicialmente */
+  opacity: 0;
+  /* Torna o conteúdo invisível */
+  max-height: 0;
+  /* Define uma altura inicial de 0 para ocultar */
+  overflow: hidden;
+  /* Impede que o conteúdo seja visível fora da área */
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  /* Transições para opacidade e altura */
   width: 100%;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -118,16 +127,22 @@ body {
   background-color: #f1f1f1;
 }
 
-.dropdown-content a:last-child {
-  border-bottom: none;
-}
-
 .dropdown.active .dropdown-content {
   display: block;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* Quando o dropdown estiver visível (após o clique no botão) */
+.dropdown-content.show {
+  display: block;
+  /* Torna o conteúdo visível */
+  opacity: 1;
+  /* Torna o conteúdo completamente opaco */
+  max-height: 500px;
+  /* Define uma altura máxima para o conteúdo (ajuste conforme necessário) */
 }
 
 /*fim dropdown serviços*/
@@ -139,68 +154,14 @@ body {
   align-items: center;
 }
 
-.delete-button {
-
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.delete-button:hover {
-  background-color: darkred;
-}
-
-/*fim botão delete serviços*/
-/*Botao delete em cada categoria*/
-.delete-category-button {
-  background-color: #e74c3c;
-  /* Vermelho intenso */
-  color: white;
-  /* Texto branco */
-  border: none;
-  /* Sem borda */
-  padding: 5px;
-  /* Espaçamento interno */
-  font-size: 14px;
-  /* Tamanho da fonte */
-  border-radius: 5px;
-  /* Bordas arredondadas */
-  cursor: pointer;
-  /* Alterar cursor para pointer */
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  /* Transição suave */
-}
-
-/* Efeito ao passar o mouse */
-.delete-category-button:hover {
-  background-color: #c0392b;
-  /* Vermelho mais escuro */
-  transform: scale(1.05);
-  /* Aumentar ligeiramente */
-}
-
-/* Efeito ao clicar */
-.delete-category-button:active {
-  background-color: #a93226;
-  /* Vermelho ainda mais escuro */
-  transform: scale(0.95);
-  /* Reduzir ligeiramente */
-}
-
-/*fim botao delete de cada categoria*/
-
-
 /*Botao flutuante na tela*/
 #floating-button-container {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 20px; /* Distância do botão em relação ao fundo */
+  right: 20px; /* Distância do botão em relação à borda direita */
   z-index: 1000;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column-reverse; /* Links acima do botão */
   align-items: flex-end;
 }
 
@@ -217,20 +178,31 @@ body {
   align-items: center;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-#floating-button:hover {
-  background-color: #262626;
+#floating-button:active {
+  transform: scale(0.9);
+  background-color: #444444;
 }
 
 #add-service-link {
-  margin-top: 10px;
+  margin-bottom: 10px; /* Espaço entre os links e o botão */
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 10px 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px); /* Começa levemente abaixo */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#add-service-link.show {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0); /* Move para a posição final */
 }
 
 #add-service-link a {
@@ -242,5 +214,6 @@ body {
 #add-service-link a:hover {
   text-decoration: underline;
 }
+
 
 /*fim botao flutuante*/
