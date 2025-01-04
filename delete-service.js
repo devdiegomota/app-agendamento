@@ -113,12 +113,9 @@ function createDropdown(category, services, categoryDocId) {
 
       // Função para confirmar a exclusão
       const confirmAction = async () => {
-        feedback.textContent = "Processando..."; // Feedback enquanto processa
-        feedback.style.color = "black";
         try {
           await deleteService(categoryDocId, serviceId);
-          feedback.style.color = "green";
-          feedback.textContent = `Serviço "${service.nome}" deletado com sucesso.`;
+          message.textContent = `Serviço "${service.nome}" deletado com sucesso.`;
           setTimeout(() => {
             modal.style.display = "none"; // Fecha o modal após exibir sucesso
           }, 2000);

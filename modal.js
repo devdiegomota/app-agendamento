@@ -26,7 +26,7 @@ export function Modal() {
         // Lida com o botão OK
         agendamentoSalvo.onclick = function () {
             modal.style.display = 'none';
-            window.location.href = 'lista-servicos.html'
+            window.location.href = 'index.html'
         }
     }
 

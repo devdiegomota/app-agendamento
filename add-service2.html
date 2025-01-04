@@ -6,6 +6,7 @@
   <title>Adicionar Serviços</title>
   <link rel="stylesheet" href="global.css">
   <link rel="stylesheet" href="add-service2.css">
+  <link rel="stylesheet" href="modal.css">
 </head>
 <body>
 <div class="form-container">
@@ -33,6 +34,13 @@
   </form>
 </div>
   <div id="status" class="subtitulo" style="font-weight: bold; margin-top: 25px;"></div>
+  <div id="statusModal" class="modal">
+    <div class="modal-content">
+      <p id="statusMessage"></p>
+      <button id="statusCloseButton" class="botao-one">Fechar</button>
+    </div>
+  </div>
+  
 </body>
 <script type="module" src="add-service2.js"></script>
 </html>

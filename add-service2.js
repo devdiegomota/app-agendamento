@@ -15,12 +15,29 @@ form.addEventListener("submit", async (e) => {
 
   // Obter valores do formulário
   const category = form.category.value.trim();
-  const serviceId = form["service-name"].value.trim();//form["service-id"].value.trim();
+  const serviceId = form["service-name"].value.trim();
   const serviceName = form["service-name"].value.trim();
   const serviceValue = parseFloat(form["service-value"].value);
 
+  // Referências ao modal
+  const modal = document.getElementById("statusModal");
+  const statusMessage = document.getElementById("statusMessage");
+  const closeButton = document.getElementById("statusCloseButton");
+
+  // Função para exibir o modal com uma mensagem
+  const showModal = (message) => {
+    statusMessage.textContent = message;
+    modal.style.display = "block";
+  };
+
+  // Lidar com o botão de fechar
+  closeButton.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  // Verificação de campos
   if (!category || !serviceId || !serviceName || isNaN(serviceValue)) {
-    statusDiv.textContent = "Por favor, preencha todos os campos corretamente.";
+    showModal("Por favor, preencha todos os campos corretamente.");
     return;
   }
 
@@ -40,7 +57,7 @@ form.addEventListener("submit", async (e) => {
           }
         }
       });
-      statusDiv.textContent = `Categoria "${category}" criada com o serviço "${serviceName}".`;
+      showModal(`Categoria "${category}" criada com o serviço "${serviceName}".`);
     } else {
       // Atualizar a categoria existente
       const currentData = categorySnapshot.data();
@@ -53,13 +70,13 @@ form.addEventListener("submit", async (e) => {
       };
 
       await updateDoc(categoryDocRef, { services: updatedServices });
-      statusDiv.textContent = `Serviço "${serviceName}" atualizado na categoria "${category}".`;
+      showModal(`Serviço "${serviceName}" atualizado na categoria "${category}".`);
     }
 
     // Limpar o formulário
     form.reset();
   } catch (error) {
     console.error("Erro ao atualizar o serviço:", error);
-    statusDiv.textContent = "Ocorreu um erro ao atualizar o serviço. Verifique o console.";
+    showModal("Ocorreu um erro ao atualizar o serviço. Verifique o console.");
   }
 });
