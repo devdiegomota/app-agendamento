@@ -40,7 +40,7 @@ function UserLoged() {
 
         } else {
 
-            window.location.href = "login.html"
+            window.location.href = "delete-service.html"
         }
     });
 }
