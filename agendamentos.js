@@ -28,7 +28,8 @@ signInAnonymously(auth)
         const errorMessage = error.message;
         // ...
     });
-
+ProcuraClientes()
+/*
 UserLoged()
 //VERIFICA SE O USUARIO TA LOGADO-----------------------------------------------------
 function UserLoged() {
@@ -44,7 +45,7 @@ function UserLoged() {
         }
     });
 }
-
+*/
 //-------------------------------------------------------------------------
 
 //FUNÇÃO QUE PEGA OS DADOS NO FIRESTORE-------------------------------------------------
