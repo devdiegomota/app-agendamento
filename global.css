@@ -102,16 +102,16 @@ p {
     border-radius: 5px;
     padding: 10px 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    opacity: 0;
+    display: none;
     pointer-events: none;
-    transform: translateY(10px); /* Começa levemente abaixo */
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    
   }
   
   #add-service-link.show {
-    opacity: 1;
+   
+    display: block;
     pointer-events: all;
-    transform: translateY(0); /* Move para a posição final */
+    
   }
   
   #add-service-link a {
