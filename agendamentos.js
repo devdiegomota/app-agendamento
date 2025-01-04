@@ -47,20 +47,6 @@ function UserLoged() {
 
 //-------------------------------------------------------------------------
 
-//FUNÇÃO QUE AO SER CHAMADA DESLOGA O USUARIO E MANDA PARA A PAGINA DESEJADA, OU PAGINA DE LOGIN
-function Logout() {
-    const auth = getAuth();
-    signOut(auth)
-        .then(() => {
-            window.location.href = "login.html" //PAGINA ESCOLHIDA AO DESLOGAR
-        })
-        .catch((error) => {
-            alert('Falha ao deslogar')
-            console.log(error);
-        });
-}
-//-------------------------------------------------------------------
-
 //FUNÇÃO QUE PEGA OS DADOS NO FIRESTORE-------------------------------------------------
 async function ProcuraClientes() {
 
@@ -184,12 +170,25 @@ function formatFirebaseTime(firebaseTimestamp) {
 //FUNÇÃO QUE REMOVE A TRANSAÇÃO PELO BOTÃO
 //etapa de confirmação antes de deletar
 function ConfirmRemover(cliente) {
-    const deveriaremover = confirm('Deseja remover esse cadastro?')
-    console.log(deveriaremover)
-    if (deveriaremover) {
-        RemovaTransacao(cliente)
-    }
+    const modal = document.getElementById('confirmModal');
+    const confirmYes = document.getElementById('confirmYes');
+    const confirmNo = document.getElementById('confirmNo');
+
+    // Mostra o modal
+    modal.style.display = 'block';
+
+    // Lida com o botão "Sim"
+    confirmYes.onclick = function () {
+        modal.style.display = 'none';
+        RemovaTransacao(cliente);
+    };
+
+    // Lida com o botão "Não"
+    confirmNo.onclick = function () {
+        modal.style.display = 'none';
+    };
 }
+
 //remove direto do firestore e da tela
 async function RemovaTransacao(cliente) {
     await deleteDoc(doc(db, "agendamentos", cliente.uid));
@@ -197,5 +196,18 @@ async function RemovaTransacao(cliente) {
 }
 
 //------------------------------------//-------------------------------------------------------//
+
+// Cria um Botão flutuante com link no início da tela
+const floatingButton = document.getElementById("floating-button");
+const addServiceLink = document.getElementById("add-service-link");
+
+// Alterna a visibilidade do link
+floatingButton.addEventListener("click", () => {
+  if (addServiceLink.classList.contains("show")) {
+    addServiceLink.classList.remove("show");
+  } else {
+    addServiceLink.classList.add("show");
+  }
+});
 
 

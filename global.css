@@ -32,7 +32,7 @@ p {
 .botao-one {
     width: 100%;
     padding: 12px;
-    background-color: #676665;
+    background-color: #c08552;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -43,7 +43,7 @@ p {
 .botao-one-two {
     width: 100%;
     padding: 12px;
-    background-color: #81807d;
+    background-color: #895737;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -62,3 +62,73 @@ p {
     padding: 5px 10px;
     cursor: pointer;
 }
+
+/* Botão flutuante na tela com links*/
+#floating-button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; 
+    z-index: 1000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+  
+  #floating-button {
+    width: 60px;
+    height: 60px;
+    background-color: #646464;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  #floating-button:active {
+    transform: scale(0.9);
+    background-color: #444444;
+  }
+  
+  #add-service-link {
+    margin-bottom: 10px; /* Espaço entre os links e o botão */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px); /* Começa levemente abaixo */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  #add-service-link.show {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0); /* Move para a posição final */
+  }
+  
+  #add-service-link a {
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+  }
+  
+  #add-service-link a:hover {
+    text-decoration: underline;
+  }
+  /*fim botao flutuante*/
+  .header-agendamento {
+    padding: 10px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }

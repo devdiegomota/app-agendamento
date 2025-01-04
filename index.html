@@ -7,11 +7,25 @@
     <title>Agendamento</title>
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="modal.css">
     
 </head>
 
 <body>
-    
+    <header>
+        <div class="logo header-agendamento">
+          <img src="img/logo.png" alt="logo.png">
+          <h1 class="subtitulo">"Agora escolha a data e hora.<br>E como posso te chamar."</h1>
+        </div>
+      
+    </header>
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+          <p>"Foi agendado com sucesso!<br>Aguardo você, até breve!"</p>
+          <button id="agendamentoSalvo" class="botao-one">Ok</button>
+          
+        </div>
+      </div>        
 
     <div class="form-container">
         <h2 style="text-align: center;" class="titulo">Agendamento</h2>
@@ -26,7 +40,7 @@
     </div>
 
     <div class="container">
-        <h2 class="subtitulo">Selecione um horário</h2>
+        <h2 class="subtitulo" id="titulo-horario" style="display: none;">Selecione um horário</h2>
         <div id="time-container" class="grid"></div>
     </div>
 <br>
@@ -37,17 +51,21 @@
             <label class="subtitulo" for="telefone">Telefone:</label>
             <input type="tel" id="telefone" name="telefone" placeholder="(48) 99122-8908" required>
             
-            <button onclick="window.history.back()" class="botao-one-two">Voltar</button>
+            <button onclick="window.history.back()" class="botao-one">Voltar</button>
             <br><br>
-            <button type="button" class="container botao-one" id="btnSalvar" style="margin-top: 0px;" disabled>Salvar Agendamento</button>
+            <button type="button" class="container botao-one-two" id="btnSalvar" style="margin-top: 0px;" disabled>Salvar Agendamento</button>
 
         </form>
     </div>
 
+    
+
 </body>
 
-<script type="module" src="app.js">
-</script>
+<script type="module" src="app.js"></script>
 <script type="module" src="formulario.js"></script>
+<script type="module" src="modal.js"></script>
+
+
 
 </html>

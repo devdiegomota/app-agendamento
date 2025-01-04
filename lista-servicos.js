@@ -58,4 +58,17 @@ onSnapshot(servicosRef, snapshot => {
   });
 });
 
+// Cria um Botão flutuante com link no início da tela
+const floatingButton = document.getElementById("floating-button");
+const addServiceLink = document.getElementById("add-service-link");
+
+// Alterna a visibilidade do link
+floatingButton.addEventListener("click", () => {
+  if (addServiceLink.classList.contains("show")) {
+    addServiceLink.classList.remove("show");
+  } else {
+    addServiceLink.classList.add("show");
+  }
+});
+
 

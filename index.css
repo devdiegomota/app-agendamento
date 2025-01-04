@@ -31,7 +31,7 @@
 }
 
 .selected {
-    background-color: #81807d;
+    background-color: #895737;
     color: white;
 }
 
@@ -75,6 +75,7 @@
 .form-container input {
     width: 100%;
     padding: 10px;
+    height: 45px;
     margin-bottom: 15px;
     border: 1px solid rgb(44, 44, 44);
     border-radius: 4px;
@@ -98,6 +99,5 @@ body {
     margin: 0px 10px;
     min-height: 100vh;
     align-items: center;
-    display: flex;
     justify-content: center;
 }

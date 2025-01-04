@@ -21,24 +21,52 @@ function createDropdown(category, services, categoryDocId) {
   button.addEventListener("click", () => {
     dropdownContent.classList.toggle("show"); // Alterna a classe "show"
   });
-  
 
   // Botão de deletar categoria
   const deleteCategoryButton = document.createElement("button");
   deleteCategoryButton.textContent = "Deletar";
   deleteCategoryButton.classList.add("botao-two");
-  
 
-  deleteCategoryButton.addEventListener("click", async () => {
-    if (confirm(`Deseja realmente deletar a categoria "${category}" e todos os serviços associados?`)) {
+  // Eventos do botao deletar categoria
+  deleteCategoryButton.addEventListener("click", () => {
+    const modal = document.getElementById("deleteCategoryModal");
+    const message = document.getElementById("deleteCategoryMessage");
+    const feedback = document.getElementById("deleteCategoryFeedback");
+    const confirmButton = document.getElementById("deleteCategoryConfirm");
+    const cancelButton = document.getElementById("deleteCategoryCancel");
+
+    // Atualiza a mensagem do modal
+    message.textContent = `Deseja realmente deletar a categoria "${category}" e todos os serviços associados?`;
+
+    // Limpa qualquer mensagem de feedback anterior
+    feedback.textContent = "";
+
+    // Mostra o modal
+    modal.style.display = "block";
+
+    // Função para confirmar a exclusão
+    const confirmAction = async () => {
       try {
         await deleteCategory(categoryDocId);
-        alert(`Categoria "${category}" deletada com sucesso.`);
+        message.textContent = `Categoria "${category}" deletada com sucesso.`;
+        setTimeout(() => {
+          modal.style.display = "none"; // Fecha o modal após exibir o sucesso
+        }, 2000);
       } catch (error) {
+        feedback.style.marginBottom = "15px"
         console.error("Erro ao deletar a categoria:", error);
-        alert("Ocorreu um erro ao tentar deletar a categoria.");
+        feedback.style.color = "red";
+        feedback.textContent = "Erro ao tentar deletar a categoria. Me avise o quanto antes por favor!.";
       }
-    }
+    };
+
+    // Lida com o botão "Sim"
+    confirmButton.onclick = confirmAction;
+
+    // Lida com o botão "Não"
+    cancelButton.onclick = () => {
+      modal.style.display = "none"; // Fecha o modal
+    };
   });
 
   dropdown.appendChild(button);
@@ -62,21 +90,54 @@ function createDropdown(category, services, categoryDocId) {
     link.textContent = `${service.nome} - R$ ${service.valor.toFixed(2)}`;
     serviceContainer.appendChild(link);
 
-    // Botão de deletar serviço
+    // Cria o botão de deletar serviço
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Deletar";
     deleteButton.classList.add("botao-two");
-    deleteButton.addEventListener("click", async () => {
-      if (confirm(`Deseja realmente deletar o serviço "${service.nome}"?`)) {
+
+    deleteButton.addEventListener("click", () => {
+      const modal = document.getElementById("deleteServiceModal");
+      const message = document.getElementById("deleteServiceMessage");
+      const feedback = document.getElementById("deleteServiceFeedback");
+      const confirmButton = document.getElementById("deleteServiceConfirm");
+      const cancelButton = document.getElementById("deleteServiceCancel");
+
+      // Atualiza a mensagem do modal
+      message.textContent = `Deseja realmente deletar o serviço "${service.nome}"?`;
+
+      // Limpa qualquer mensagem de feedback anterior
+      feedback.textContent = "";
+
+      // Mostra o modal
+      modal.style.display = "block";
+
+      // Função para confirmar a exclusão
+      const confirmAction = async () => {
+        feedback.textContent = "Processando..."; // Feedback enquanto processa
+        feedback.style.color = "black";
         try {
           await deleteService(categoryDocId, serviceId);
-          alert(`Serviço "${service.nome}" deletado com sucesso.`);
+          feedback.style.color = "green";
+          feedback.textContent = `Serviço "${service.nome}" deletado com sucesso.`;
+          setTimeout(() => {
+            modal.style.display = "none"; // Fecha o modal após exibir sucesso
+          }, 2000);
         } catch (error) {
           console.error("Erro ao deletar o serviço:", error);
-          alert("Ocorreu um erro ao tentar deletar o serviço.");
+          feedback.style.color = "red";
+          feedback.textContent = "Ocorreu um erro ao tentar deletar o serviço. Verifique o console para mais detalhes.";
         }
-      }
+      };
+
+      // Lida com o botão "Sim"
+      confirmButton.onclick = confirmAction;
+
+      // Lida com o botão "Não"
+      cancelButton.onclick = () => {
+        modal.style.display = "none"; // Fecha o modal
+      };
     });
+
 
     serviceContainer.appendChild(deleteButton);
     dropdownContent.appendChild(serviceContainer);
@@ -86,15 +147,13 @@ function createDropdown(category, services, categoryDocId) {
   return dropdown;
 }
 
-
 async function deleteCategory(categoryDocId) {
   try {
     const categoryDocRef = doc(db, "servicos", categoryDocId);
     await deleteDoc(categoryDocRef);
-    alert("Categoria deletada com sucesso!");
+
   } catch (error) {
     console.error("Erro ao deletar a categoria:", error);
-    throw new Error("Não foi possível deletar a categoria.");
   }
 }
 
@@ -123,7 +182,6 @@ async function deleteService(categoryDocId, serviceId) {
   }
 }
 
-
 // Listener para dados do Firestore
 const servicosRef = collection(db, "servicos");
 onSnapshot(servicosRef, snapshot => {
@@ -143,7 +201,6 @@ onSnapshot(servicosRef, snapshot => {
   });
 });
 
-// Cria um Botão flutuante com link no inicio da tela
 // Cria um Botão flutuante com link no início da tela
 const floatingButton = document.getElementById("floating-button");
 const addServiceLink = document.getElementById("add-service-link");

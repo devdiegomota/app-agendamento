@@ -2,6 +2,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/fireba
 import { getFirestore, collection, query, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 import { dadosform } from "./formulario.js";
 import { validarCampos } from "./formulario.js";
+import { Modal } from "./modal.js";
+
 // Configuração do Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyC6CNIyYzP5jjwih2_AagpP3zsmzqxEPVo",
@@ -63,7 +65,10 @@ function criarDatas(containerId, diasAdiante = 15) {
         item.setAttribute("aria-label", `Data: ${data.toLocaleDateString("pt-BR")}`);
 
         item.addEventListener("click", () => {
+            const tituloHorario = document.getElementById('titulo-horario')
+
             selecionarData(item);
+            tituloHorario.style.display = "block"
         });
 
         fragment.appendChild(item);
@@ -159,7 +164,8 @@ async function salvarAgendamento(data, horario) {
 
     try {
         await addDoc(collection(db, "agendamentos"), { data, horario, nome, telefone, servico: serviceName, valor: serviceValue });
-        alert("Agendamento salvo com sucesso!");
+        //alert("Agendamento salvo com sucesso!");
+        Modal()
         dataSelecionada = null;
         horarioSelecionado = null;  
         verificarSePodeSalvar();
