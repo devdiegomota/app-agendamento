@@ -3,40 +3,6 @@ body {
   margin: 0px 30px;
 }
 
-.search-bar {
-  display: flex;
-  align-items: center;
-  max-width: 100%;
-  height: 40px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  margin-top: 20px;
-}
-
-.search-bar input {
-  border: none;
-  outline: none;
-  flex: 1;
-  height: 90%;
-  font-size: 16px;
-  padding-left: 10px;
-  border-radius: 20px;
-}
-
-.search-bar button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.search-bar img {
-  width: 75%;
-}
-
 .line {
   border: none;
   height: 1px;
@@ -78,8 +44,8 @@ body {
 .dropdown-button {
   background-color: #ffffff;
   font-weight: bold;
-  color: #555;
-  padding: 10px 6px;
+  color: #676665;
+  padding: 10px 12px;
   font-size: 16px;
   border: 1px solid #5e5d5d;
   border-radius: 4px;

@@ -26,7 +26,7 @@ function createDropdown(category, services, categoryDocId) {
   // Botão de deletar categoria
   const deleteCategoryButton = document.createElement("button");
   deleteCategoryButton.textContent = "Deletar";
-  deleteCategoryButton.classList.add("botao-one");
+  deleteCategoryButton.classList.add("botao-two");
   
 
   deleteCategoryButton.addEventListener("click", async () => {

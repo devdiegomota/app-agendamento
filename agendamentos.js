@@ -91,6 +91,7 @@ function AddClientesNaTela(clientes) {
         const BotaoDelete = document.createElement('button')
         BotaoDelete.innerHTML = "Remover"
         BotaoDelete.classList.add('botao-two')
+        BotaoDelete.style.float = "inline-end"
         BotaoDelete.addEventListener('click', event => {
             event.stopPropagation();
             ConfirmRemover(cliente)
