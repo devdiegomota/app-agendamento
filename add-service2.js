@@ -18,6 +18,8 @@ form.addEventListener("submit", async (e) => {
   const serviceId = form["service-name"].value.trim();
   const serviceName = form["service-name"].value.trim();
   const serviceValue = parseFloat(form["service-value"].value);
+  const serviceDuration = parseFloat(form["service-duration"].value);
+
 
   // Referências ao modal
   const modal = document.getElementById("statusModal");
@@ -36,7 +38,7 @@ form.addEventListener("submit", async (e) => {
   };
 
   // Verificação de campos
-  if (!category || !serviceId || !serviceName || isNaN(serviceValue)) {
+  if (!category || !serviceDuration || !serviceId || !serviceName || isNaN(serviceValue)) {
     showModal("Por favor, preencha todos os campos corretamente.");
     return;
   }
@@ -53,10 +55,12 @@ form.addEventListener("submit", async (e) => {
         services: {
           [serviceId]: {
             nome: serviceName,
-            valor: serviceValue
+            valor: serviceValue,
+            duracao: serviceDuration
           }
         }
       });
+      console.log(serviceDuration)
       showModal(`Categoria "${category}" criada com o serviço "${serviceName}".`);
     } else {
       // Atualizar a categoria existente
@@ -65,7 +69,8 @@ form.addEventListener("submit", async (e) => {
         ...currentData.services,
         [serviceId]: {
           nome: serviceName,
-          valor: serviceValue
+          valor: serviceValue,
+          duracao: serviceDuration
         }
       };
 

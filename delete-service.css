@@ -75,7 +75,7 @@ body {
   /* Transições para opacidade e altura */
   width: 100%;
   background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #939393;
   border-radius: 4px;
   min-width: 160px;
   z-index: 1;

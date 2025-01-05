@@ -51,7 +51,7 @@ function createDropdown(category, services, categoryDocId) {
         message.textContent = `Categoria "${category}" deletada com sucesso.`;
         setTimeout(() => {
           modal.style.display = "none"; // Fecha o modal após exibir o sucesso
-        }, 2000);
+        }, 1000);
       } catch (error) {
         feedback.style.marginBottom = "15px"
         console.error("Erro ao deletar a categoria:", error);
@@ -87,7 +87,13 @@ function createDropdown(category, services, categoryDocId) {
     // Link do serviço
     const link = document.createElement("a");
     link.href = "#";
-    link.textContent = `${service.nome} - R$ ${service.valor.toFixed(2)}`;
+    link.innerHTML = `
+    <span>${service.nome}</span><br>
+    <span>R$ ${service.valor.toFixed(2)}</span><br>
+    <span>Duração: ${service.duracao} min</span>`;
+
+
+
     serviceContainer.appendChild(link);
 
     // Cria o botão de deletar serviço

@@ -31,7 +31,10 @@ function createDropdown(category, services) {
     const service = services[key];
     const link = document.createElement("a");
     link.href = `agendar.html?servico=${encodeURIComponent(service.nome)}&valor=${encodeURIComponent(service.valor)}`;
-    link.textContent = `${service.nome} - R$ ${service.valor.toFixed(2)}`;
+    link.innerHTML = `
+    <span>${service.nome}</span><br>
+    <span>R$ ${service.valor.toFixed(2)}</span><br>
+    <span>Duração: ${service.duracao} min</span>`;
     dropdownContent.appendChild(link);
 
   });
