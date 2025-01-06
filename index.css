@@ -102,7 +102,7 @@ body {
   /* Torna o conteúdo visível */
   opacity: 1;
   /* Torna o conteúdo completamente opaco */
-  max-height: 500px;
+  max-height: 100%;
   /* Define uma altura máxima para o conteúdo (ajuste conforme necessário) */
 }
 
