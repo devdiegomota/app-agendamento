@@ -88,7 +88,7 @@ function createDropdown(category, services, categoryDocId) {
     const link = document.createElement("a");
     link.href = "#";
     link.innerHTML = `
-    <span>${service.nome}</span><br>
+    <span><b>${service.nome}</b></span><br>
     <span>R$ ${service.valor.toFixed(2)}</span><br>
     <span>Duração: ${service.duracao} min</span>`;
 
