@@ -1,8 +1,37 @@
-import { initializeApp, getDocs, getFirestore, addDoc, where, query, collection, onSnapshot, firebaseConfig } from "./firebase-config.js";
+import {getStorage, ref, uploadBytes, getDownloadURL, setDoc, getDoc, initializeApp, getDocs, getFirestore, addDoc, doc, where, query, collection, onSnapshot, firebaseConfig } from "./firebase-config.js";
 
 // Inicialização do Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+// SEÇÃO IMAGEM DE PERFIL BARBEIRO DA PAGINA
+
+// Seletores do DOM
+const profileCircle = document.getElementById('profileCircle');
+const profileImage = document.getElementById('profileImage');
+
+// ID do usuário (simulado aqui, use autenticação real em um app completo)
+const userId = "user123";
+
+// Carrega a imagem do perfil ao carregar a página
+async function loadProfileImage() {
+  try {
+    const userDoc = await getDoc(doc(db, "users", userId));
+    if (userDoc.exists()) {
+      const data = userDoc.data();
+      if (data.profileImageUrl) {
+        profileImage.src = data.profileImageUrl;
+      }
+    }
+  } catch (error) {
+    console.error("Erro ao carregar a imagem de perfil:", error);
+  }
+}
+
+// Chama a função para carregar a imagem do perfil ao inicializar
+loadProfileImage();
+
+//FIM SEÇÃO IMAGEM PERFIL
 
 // Referência para o container
 const dropdownContainer = document.getElementById("dropdown-container");
@@ -32,7 +61,7 @@ function createDropdown(category, services) {
     const link = document.createElement("a");
     link.href = `agendar.html?servico=${encodeURIComponent(service.nome)}&valor=${encodeURIComponent(service.valor)}`;
     link.innerHTML = `
-    <span>${service.nome}</span><br>
+    <span><b>${service.nome}</b></span><br>
     <span>R$ ${service.valor.toFixed(2)}</span><br>
     <span>Duração: ${service.duracao} min</span>`;
     dropdownContent.appendChild(link);
@@ -59,19 +88,6 @@ onSnapshot(servicosRef, snapshot => {
     const dropdown = createDropdown(category, services);
     dropdownContainer.appendChild(dropdown);
   });
-});
-
-// Cria um Botão flutuante com link no início da tela
-const floatingButton = document.getElementById("floating-button");
-const addServiceLink = document.getElementById("add-service-link");
-
-// Alterna a visibilidade do link
-floatingButton.addEventListener("click", () => {
-  if (addServiceLink.classList.contains("show")) {
-    addServiceLink.classList.remove("show");
-  } else {
-    addServiceLink.classList.add("show");
-  }
 });
 
 

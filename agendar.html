@@ -8,57 +8,62 @@
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="agendar.css">
     <link rel="stylesheet" href="modal.css">
-    
+
 </head>
 
 <body>
-    <header>
-        <div class="logo header-agendamento">
-          <img src="img/logo.png" alt="logo.png">
-          <h1 class="subtitulo">"Agora escolha a data e hora.<br>E como posso te chamar."</h1>
+    <header style="display: flex; gap: 15px;">
+        <div class="profile-circle" id="profileCircle">
+            <img src="https://via.placeholder.com/150" alt="Imagem de perfil" id="profileImage">
         </div>
-      
+        <div style="align-content: center;">
+            <h2 style="margin: 0px; font-weight: normal;" class="titulo">Seja bem vindo(a) ao</h2>
+            <h2 style="margin: 0px;">França Barbearia</h2>
+        </div>
+
     </header>
     <div id="confirmModal" class="modal">
         <div class="modal-content">
-          <p>"Foi agendado com sucesso!<br>Aguardo você, até breve!"</p>
-          <button id="agendamentoSalvo" class="botao-one">Ok</button>
-          
+            <p>"Foi agendado com sucesso!<br>Aguardo você, até breve!"</p>
+            <button id="agendamentoSalvo" class="botao-one">Ok</button>
+
         </div>
-      </div>        
+    </div>
 
     <div class="form-container">
-        <h2 style="text-align: center;" class="titulo">Agendamento</h2>
+        <h2 class="titulo">Agendamento</h2><hr>
 
-        <div id="chosen-service" class="subtitulo">  
-            <p id="service-name"></p><p id="service-value"></p>
+        <div id="chosen-service" class="subtitulo">
+            <p id="service-name"></p>
+            <p id="service-value"></p>
         </div>
-        
-    <div class="container">
-        <h2 class="subtitulo">Selecione uma data</h2>
-        <div id="date-container" class="grid"></div>
-    </div>
 
-    <div class="container">
-        <h2 class="subtitulo" id="titulo-horario" style="display: none;">Selecione um horário</h2>
-        <div id="time-container" class="grid"></div>
-    </div>
-<br>
+        <div class="container">
+            <h2 class="subtitulo">Selecione uma data</h2>
+            <div id="date-container" class="grid"></div>
+        </div>
+
+        <div class="container">
+            <h2 class="subtitulo" id="titulo-horario" style="display: none;">Selecione um horário</h2>
+            <div id="time-container" class="grid"></div>
+        </div>
+        <br>
         <form>
             <label class="subtitulo" for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
-            
+
             <label class="subtitulo" for="telefone">Telefone:</label>
             <input type="tel" id="telefone" name="telefone" placeholder="(48) 99122-8908" required>
-            
-            <button onclick="window.history.back()" class="botao-one">Voltar</button>
-            <br><br>
-            <button type="button" class="container botao-one-two" id="btnSalvar" style="margin-top: 0px;" disabled>Salvar Agendamento</button>
+
+            <button onclick="window.history.back()" class="botao-one" style="margin-bottom: 10px;">Voltar</button>
+            <br>
+            <button type="button" class="container botao-one-two" id="btnSalvar" style="margin-top: 0px;"
+                disabled>Salvar Agendamento</button>
 
         </form>
     </div>
 
-    
+
 
 </body>
 

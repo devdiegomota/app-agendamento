@@ -3,6 +3,8 @@ export function Modal() {
     const confirmYes = document.getElementById('confirmYes');
     const confirmNo = document.getElementById('confirmNo');
     const agendamentoSalvo = document.getElementById('agendamentoSalvo')
+    const modalOk = document.getElementById('modal-ok')
+
 
     // Mostra o modal
     modal.style.display = 'block';
@@ -23,10 +25,17 @@ export function Modal() {
     }
 
     if (agendamentoSalvo) {
-        // Lida com o botão OK
+        // Lida com o botão agendamento
         agendamentoSalvo.onclick = function () {
             modal.style.display = 'none';
             window.location.href = 'index.html'
+        }
+    }
+    if (modalOk) {
+        // Lida com o botão OK
+        modalOk.onclick = function () {
+            modal.style.display = 'none';
+            
         }
     }
 

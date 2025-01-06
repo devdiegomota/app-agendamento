@@ -31,7 +31,7 @@
 }
 
 .selected {
-    background-color: #895737;
+    background-color: #4a4e69;
     color: white;
 }
 
@@ -54,10 +54,6 @@
 
 .form-container {
     background-color: #ffffff;
-    border: 1px solid #eeeeee;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: -webkit-fill-available;;
    
 }

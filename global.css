@@ -1,134 +1,159 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #ece3db;
-    margin: 10px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  margin: 30px 20px;
 }
 
 .logo {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 button:disabled {
-    background-color: #5a5a5a;
-    cursor: not-allowed;
-    opacity: 0.7;
+  background-color: #5a5a5a;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .titulo {
-    font-size: 18px;
-    color: #676665;
+  font-size: 18px;
+  color: #000000;
 }
 
 .subtitulo {
-    font-size: 16px;
-    color: #676665;
+  font-size: 16px;
+  color: #2f2f2f;
 }
+
 p {
-    color: #676665;
-    
+  color: #494949;
+
 }
 
 .botao-one {
-    width: 100%;
-    padding: 12px;
-    background-color: #c08552;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 1rem;
+  width: 100%;
+  padding: 12px;
+  background-color: #8d99ae;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .botao-one-two {
-    width: 100%;
-    padding: 12px;
-    background-color: #895737;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 1rem;
+  width: 100%;
+  padding: 12px;
+  background-color: #2b2d42;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .botao-two {
-    width: auto;
-    margin-right: 8px;
-    font-size: 12px;
-    background-color: #81807d;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
+  width: auto;
+  margin-right: 8px;
+  font-size: 12px;
+  background-color: #4a4e69;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
 /* Botão flutuante na tela com links*/
 #floating-button-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px; 
-    z-index: 1;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-end;
-  }
-  
-  #floating-button {
-    width: 60px;
-    height: 60px;
-    background-color: #646464;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-  }
-  
-  #floating-button:active {
-    transform: scale(0.9);
-    background-color: #444444;
-  }
-  
-  #add-service-link {
-    margin-bottom: 10px; /* Espaço entre os links e o botão */
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    display: none;
-    pointer-events: none;
-    
-  }
-  
-  #add-service-link.show {
-   
-    display: block;
-    pointer-events: all;
-    
-  }
-  
-  #add-service-link a {
-    text-decoration: none;
-    color: #555;
-    font-size: 16px;
-  }
-  
-  #add-service-link a:hover {
-    text-decoration: underline;
-  }
-  /*fim botao flutuante*/
-  .header-agendamento {
-    padding: 10px;
-    gap: 20px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    text-align: center;
-  }
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+#floating-button {
+  width: 60px;
+  height: 60px;
+  background-color: #22223b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#floating-button:active {
+  transform: scale(0.9);
+  background-color: #444444;
+}
+
+#add-service-link {
+  margin-bottom: 10px;
+  /* Espaço entre os links e o botão */
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: none;
+  pointer-events: none;
+
+}
+
+#add-service-link.show {
+
+  display: block;
+  pointer-events: all;
+
+}
+
+#add-service-link a {
+  text-decoration: none;
+  color: #555;
+  font-size: 16px;
+}
+
+#add-service-link a:hover {
+  text-decoration: underline;
+}
+
+/*fim botao flutuante*/
+.header-agendamento {
+  padding: 10px;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+/*Imagem de perfil*/
+.profile-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.profile-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*fim imagem perfil*/

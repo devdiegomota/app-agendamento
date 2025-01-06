@@ -1,19 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import { getFirestore, collection, query, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL, setDoc, getDoc, initializeApp, getDocs, getFirestore, addDoc, doc, where, query, collection, onSnapshot, firebaseConfig } from "./firebase-config.js";
 import { dadosform } from "./formulario.js";
 import { validarCampos } from "./formulario.js";
 import { Modal } from "./modal.js";
-
-// Configuração do Firebase
-const firebaseConfig = {
-    apiKey: "AIzaSyC6CNIyYzP5jjwih2_AagpP3zsmzqxEPVo",
-    authDomain: "agendamento-2974c.firebaseapp.com",
-    projectId: "agendamento-2974c",
-    storageBucket: "agendamento-2974c.firebasestorage.app",
-    messagingSenderId: "180079994438",
-    appId: "1:180079994438:web:3322290845c5c625128c47",
-    measurementId: "G-JQ31P0VMG8"
-};
 
 // Inicialização do Firebase
 const app = initializeApp(firebaseConfig);
@@ -21,6 +9,35 @@ const db = getFirestore(app);
 
 let dataSelecionada = null;
 let horarioSelecionado = null;
+
+// SEÇÃO IMAGEM DE PERFIL BARBEIRO DA PAGINA
+
+// Seletores do DOM
+const profileCircle = document.getElementById('profileCircle');
+const profileImage = document.getElementById('profileImage');
+
+// ID do usuário (simulado aqui, use autenticação real em um app completo)
+const userId = "user123";
+
+// Carrega a imagem do perfil ao carregar a página
+async function loadProfileImage() {
+  try {
+    const userDoc = await getDoc(doc(db, "users", userId));
+    if (userDoc.exists()) {
+      const data = userDoc.data();
+      if (data.profileImageUrl) {
+        profileImage.src = data.profileImageUrl;
+      }
+    }
+  } catch (error) {
+    console.error("Erro ao carregar a imagem de perfil:", error);
+  }
+}
+
+// Chama a função para carregar a imagem do perfil ao inicializar
+loadProfileImage();
+
+//FIM SEÇÃO IMAGEM PERFIL
 
 // Função para obter o valor de um parâmetro da URL
 function getQueryParam(param) {
