@@ -26,8 +26,9 @@
 }
 
 .item.disabled {
-    background-color: #ccc;
+    background-color: #e84040;
     cursor: not-allowed;
+    color: white;
 }
 
 .selected {

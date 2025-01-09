@@ -95,3 +95,11 @@ const editarServico = document.getElementById('botao-editar-servicos');
     ;
   });
 //fim botao
+//botao editar serviço pagina
+const disponibilidadeHorario = document.getElementById('botao-disponibilidade-horarios');
+
+  disponibilidadeHorario.addEventListener('click', () => {
+    location.href = "disponibilidade.html";
+    ;
+  });
+//fim botao

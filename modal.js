@@ -4,6 +4,7 @@ export function Modal() {
     const confirmNo = document.getElementById('confirmNo');
     const agendamentoSalvo = document.getElementById('agendamentoSalvo')
     const modalOk = document.getElementById('modal-ok')
+    const erroDisponibilidadeHorarioButton = document.getElementById('erroDisponibilidadeModalButton')
 
 
     // Mostra o modal
@@ -34,6 +35,13 @@ export function Modal() {
     if (modalOk) {
         // Lida com o botão OK
         modalOk.onclick = function () {
+            modal.style.display = 'none';
+            
+        }
+    }
+    if (erroDisponibilidadeHorarioButton) {
+        // Lida com o botão OK
+        erroDisponibilidadeHorarioButton.onclick = function () {
             modal.style.display = 'none';
             
         }
